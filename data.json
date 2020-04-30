@@ -1,0 +1,52 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "name": "Audrey Horne",
+      "occupation": "student",
+      "age": 17
+    },
+    {
+      "id": "2",
+      "name": "Laura Palmer",
+      "occupation": "student",
+      "age": 17
+    },
+    {
+      "id": "3",
+      "name": "Donna Howard",
+      "occupation": "student",
+      "age": 17
+    },
+    {
+      "id": "4",
+      "name": "Dale Cooper",
+      "occupation": "FBI agent",
+      "age": 35
+    },
+    {
+      "id": "5",
+      "name": "Harry Truman",
+      "occupation": "sheriff",
+      "age": 41
+    },
+    {
+      "id": "6",
+      "name": "Leo Johnson",
+      "occupation": "unemployed",
+      "age": 29
+    },
+    {
+      "id": "7",
+      "name": "Garland Briggs",
+      "occupation": "Air Force major",
+      "age": 52
+    },
+    {
+      "id": "8",
+      "name": "Bob",
+      "occupation": "bad spirit",
+      "age": 0
+    }
+  ]
+}
