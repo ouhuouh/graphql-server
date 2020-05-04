@@ -9,14 +9,11 @@ const {
 } = require("graphql");
 
 
-// Customer Type
+//1. Add name and age fields to CustomerType
 const CustomerType = new GraphQLObjectType({
   name: "Customer",
   fields: () => ({
     id: {type: GraphQLString},
-    name: {type: GraphQLString},
-    occupation: {type: GraphQLString},
-    age: {type: GraphQLInt},
   })
 }
 );
@@ -35,13 +32,7 @@ const RootQuery = new GraphQLObjectType({
           .then(res => res.data);
       }
     },
-    customers: {
-      type: new GraphQLList(CustomerType),
-      resolve(parentValue, args) {
-        return axios.get("http://localhost:3000/customers/")
-          .then(res => res.data)
-      }
-    }
+    //2. Add customers field for all customers query
   }
 });
 
@@ -53,13 +44,11 @@ const mutation = new GraphQLObjectType({
       type: CustomerType,
       args:{
         name: {type: new GraphQLNonNull(GraphQLString)},
-        occupation: {type: new GraphQLNonNull(GraphQLString)},
         age: {type: new GraphQLNonNull(GraphQLInt)},
       },
       resolve(parentValue, args){
         return axios.post("http://localhost:3000/customers/", {
           name: args.name,
-          occupation: args.age,
           age: args.age
         })
           .then(res => res.data);
@@ -75,19 +64,7 @@ const mutation = new GraphQLObjectType({
           .then(res => res.data);
       }
     },
-    editCustomer: {
-      type: CustomerType,
-      args:{
-        id: {type: new GraphQLNonNull(GraphQLString)},
-        name: {type: GraphQLString},
-        occupation: {type: GraphQLString},
-        age: {type: GraphQLInt},
-      },
-      resolve(parentValue, args){
-        return axios.patch(`http://localhost:3000/customers/${args.id}`, args)
-          .then(res => res.data);
-      }
-    },
+    //3. Add editCustomer mutation field
   }
 });
 
